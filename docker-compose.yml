@@ -1,0 +1,15 @@
+services:
+  ssh-dev-container:
+    build: ./src
+    ports:
+      - 2222:22/tcp
+    volumes:
+      - workspace:/home/developer/workspace:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      SSH_USER: developer
+      SSH_PASSWORD: password
+      SSH_KEY:
+
+volumes:
+  workspace:
